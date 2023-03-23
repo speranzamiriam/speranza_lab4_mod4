@@ -9,10 +9,10 @@ describe('Feature Login SauceDemo', () => {
         await driverInstance.startDriver();
         loginPage = new LoginPage();  
         // loginPage = new LoginPage();
-    });
+    }, 30000);
 
     afterAll(async () => {
-        //await driverInstance.closeDriver();
+        await driverInstance.closeDriver();
     });
 
     it('Go To Page', async () => {

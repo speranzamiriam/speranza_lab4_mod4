@@ -10,4 +10,9 @@ export abstract class BasePage {
     async navigateTo(url: string) {
         await this.driver.Page.goto(url, { waitUntil: 'networkidle' });
     }
+
+    async getElementText(locator: string) {
+        //await this.driver.Page.click(this.itemAddCartButton(itemName));
+        return this.driver.Page.textContent(locator);
+    }
 }

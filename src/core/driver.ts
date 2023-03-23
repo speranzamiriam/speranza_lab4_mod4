@@ -17,6 +17,11 @@ export class Driver {
           this.page = await this.context.newPage();
     }
 
+    async closeDriver(){
+        await this.context.close();
+        await this.browser.close();      
+    }
+
     get Page(): Page {
         return this.page;
     }

@@ -11,8 +11,7 @@ export abstract class BasePage {
         await this.driver.Page.goto(url, { waitUntil: 'networkidle' });
     }
 
-    async getElementText(locator: string) {
-        //await this.driver.Page.click(this.itemAddCartButton(itemName));
+    async getElementText(locator: string) {      
         return this.driver.Page.textContent(locator);
     }
 }

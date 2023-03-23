@@ -1,19 +1,16 @@
 import { BasePage } from "./base.page";
 
-export class LoginPage extends BasePage {
+ class LoginPage extends BasePage {
     // Locators
-    private username: string = '#user-name';
-    private password: string = '#password';
-    private loginButton: string = '#login-button';
+    private username: string = '#txt-username';
+    private password: string = '#txt-password';
+    private loginButton: string = '#btn-login';
 
     constructor(){
         super();
     }
 
     async setUsername(text: string) {
-        //this.driver.startDriver();
-
-        // ElementAction.setText(locator, text)
         await this.driver.Page.fill(this.username, text);
     }
 
@@ -22,14 +19,13 @@ export class LoginPage extends BasePage {
     }
 
     async clickButton() {
-        // page.click(locator); 
         await this.driver.Page.click(this.loginButton);
     }
 
     async Login(username: string, password: string) {
-        await this.driver.Page.fill(this.username, username);
-        await this.driver.Page.fill(this.password, password);
-        await this.driver.Page.click(this.loginButton);
-        //await this.driver.Page.waitForTimeout(10000);
+        await this.setUsername(username);
+        await this.setPassword(password);
+        await this.clickButton();       
     }
 }
+export const loginPage = new LoginPage();
